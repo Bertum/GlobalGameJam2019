@@ -7,9 +7,7 @@ public class PigController : MonoBehaviour
 
     private void Awake()
     {
-        wheat = 0;
-        wood = 0;
-        stone = 0;
+        ResetMaterials();
     }
 
     public bool UseMaterial()
@@ -43,6 +41,7 @@ public class PigController : MonoBehaviour
     public void ChangeMaterial(Material newMaterial)
     {
         currentMaterial = newMaterial;
+        ResetMaterials();
         switch (currentMaterial)
         {
             case Material.Wheat:
@@ -58,5 +57,12 @@ public class PigController : MonoBehaviour
                 stone = GameConfiguration.STONECAPACITY;
                 break;
         }
+    }
+
+    private void ResetMaterials()
+    {
+        wheat = 0;
+        wood = 0;
+        stone = 0;
     }
 }

@@ -103,7 +103,7 @@ public class WallController : MonoBehaviour
         }        
     }
 
-    private void InitWall()
+    public void InitWall()
     {
         InitHits();
         _life = hits;

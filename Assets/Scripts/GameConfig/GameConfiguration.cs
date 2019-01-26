@@ -7,4 +7,7 @@
     //Scenes
     public const string GAMESCENE = "Game";
     public const string MAINMENUSCENE = "MainMenu";
+
+    //Tags
+    public const string WALL = "Wall";
 }

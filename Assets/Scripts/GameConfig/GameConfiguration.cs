@@ -17,4 +17,7 @@
     public const int WHEAT_HITS = 1;
     public const int WOOD_HITS = 2;
     public const int STONE_HITS = 3;
+
+    //Ranking
+    public const int MAX_RANKING_RECORDS = 5;
 }

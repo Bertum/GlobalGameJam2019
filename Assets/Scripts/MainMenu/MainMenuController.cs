@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
+    public GameObject buttons;
+    public GameObject credits;
     private void LoadGame()
     {
         PlayerPrefs.Save();
@@ -28,6 +30,13 @@ public class MainMenuController : MonoBehaviour
 
     public void ShowCredits()
     {
+        buttons.SetActive(false);
+        credits.SetActive(true);
+    }
 
-    }   //TODO show the credits
+    public void CloseCredits()
+    {
+        credits.SetActive(false);
+        buttons.SetActive(true);
+    }
 }

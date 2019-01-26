@@ -101,4 +101,10 @@ public class JoystickController : MonoBehaviour
     {
         return GetButtonDown(JOYSTICK_Y);
     }
+
+    public bool IsPressAnyButton()
+    {
+        return IsPressButtonA() || IsPressButtonB() ||
+            IsPressButtonX() || IsPressButtonY();
+    }
 }

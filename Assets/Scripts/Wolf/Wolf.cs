@@ -6,11 +6,12 @@ public class Wolf : MonoBehaviour
 {
     public int MaxTimeToAppear;
     public int Duration;
+    public int WalkDuration;
 
     internal WolfManager _manager;
 
-    private double _nextAppear;
-    private double _duration;
+    private float _nextAppear;
+    private float _duration;
     private Renderer _renderer;
     private WolfAlert _alert;
 
@@ -19,6 +20,7 @@ public class Wolf : MonoBehaviour
     {
         if (MaxTimeToAppear <= 0) MaxTimeToAppear = 5;
         if (Duration <= 0) Duration = 3;
+        if (WalkDuration <= 0) WalkDuration = 3;
         _nextAppear = MaxTimeToAppear;
         _duration = Duration + _nextAppear;
         _renderer = GetComponentInChildren<Renderer>();
@@ -39,13 +41,14 @@ public class Wolf : MonoBehaviour
                 transform.parent = null;
                 transform.position = position;
                 transform.rotation = wallAppear.transform.rotation;
-                _nextAppear = double.MaxValue;
+                _nextAppear = float.MaxValue;
                 _renderer.enabled = true;
                 _alert = gameObject.AddComponent<WolfAlert>();
             }
         }
         else if (_duration <= 0d)
         {
+            // TODO: Check if the wall is broken
             _nextAppear = Random.Range(1, MaxTimeToAppear);
             _duration = Duration + _nextAppear;
             transform.parent = null;

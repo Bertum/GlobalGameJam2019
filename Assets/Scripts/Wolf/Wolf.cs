@@ -94,14 +94,16 @@ public class AppearingState : WolfState
         Wolf.Wall = Wolf.Manager.TryToAppear(Wolf);
         if (Wolf.Wall != null)
         {
+            Wolf.transform.rotation = Quaternion.Euler(Vector3.zero);
             Wolf.transform.SetParent(Wolf.Wall.transform);
             Wolf.transform.localPosition = new Vector3(Wolf.Offset, 0);
             Wolf.InitPosition = Wolf.transform.position;
             Wolf.transform.parent = null;
             Wolf.transform.position = Wolf.InitPosition;
-            Wolf.transform.rotation = Wolf.Wall.transform.rotation;
+            Wolf.transform.Rotate(0, 0, Wolf.Wall.transform.rotation.eulerAngles.z - 180);
             Wolf.Renderer.enabled = true;
             Wolf.Alert = Wolf.gameObject.AddComponent<WolfAlert>();
+            Wolf.GetComponentInChildren<ParticleSystem>().Play();
             Wolf.Progress<BlowingState>();
         }
     }
@@ -120,6 +122,7 @@ public class BlowingState : WolfState
 
     protected override void TriggerState()
     {
+        Wolf.GetComponentInChildren<ParticleSystem>().Stop(false, ParticleSystemStopBehavior.StopEmitting);
         var wallCtrl = Wolf.Wall.GetComponent<WallController>();
         wallCtrl.DestroyWall();
         if (!wallCtrl.IsNoWall)
@@ -139,6 +142,7 @@ public class BlowingState : WolfState
 
 public class MovingState : WolfState
 {
+    public GameObject RankingControllerGameObject;
     public MovingState(float stateDuration, Wolf wolf) : base(stateDuration, wolf)
     {
     }
@@ -152,8 +156,7 @@ public class MovingState : WolfState
         }
         else
         {
-            // TODO: Loose
-            Debug.Log("You looser");
+            RankingControllerGameObject.GetComponent<RankingController>().FinishGame();
         }
     }
 

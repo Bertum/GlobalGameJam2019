@@ -27,7 +27,7 @@ public class LoadSaveRanking : MonoBehaviour
         if (File.Exists(destination)) file = File.OpenRead(destination);
         else
         {
-            Debug.LogError("File not found");
+            Debug.Log("File not found");
             return new RankingData();
         }
 

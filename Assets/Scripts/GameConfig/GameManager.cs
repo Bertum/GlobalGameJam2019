@@ -21,31 +21,26 @@ public class GameManager : MonoBehaviour
         _freeWalls.AddRange(_walls);
 
         var difficulty = (Difficulty) PlayerPrefs.GetInt("Difficulty");
-        string wallSprite;
-        int life;
+        Material wallMaterial;
         switch (difficulty)
         {
             case Difficulty.Easy:
-                wallSprite = "stone";
-                life = 3;
+                wallMaterial = Material.Stone;
                 break;
             case Difficulty.Hard:
-                wallSprite = "wheat";
-                life = 1;
+                wallMaterial = Material.Wheat;
                 break;
             case Difficulty.Medium:
             default:
-                wallSprite = "wood";
-                life = 2;
+                wallMaterial = Material.Wood;
                 break;
         }
-        wallSprite = "Sprites/Game/" + wallSprite;
 
         foreach (var wall in _walls)
         {
-            var materialObject = wall.transform.Find("Material").GetComponent<SpriteRenderer>();
-            materialObject.sprite = Resources.Load<Sprite>(wallSprite);
-            wall.GetComponent<WallController>()._life = life;
+            var controller = wall.GetComponent<WallController>();
+            controller.wallMaterial = wallMaterial;
+            controller.InitWall();
         }
     }
 

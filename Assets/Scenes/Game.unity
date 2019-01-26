@@ -1027,7 +1027,7 @@ PrefabInstance:
     - target: {fileID: 7575386787064520451, guid: 2a8e071e74057b04584ace39064942ee,
         type: 3}
       propertyPath: m_Name
-      value: Resource
+      value: ImageCurrentResource
       objectReference: {fileID: 0}
     - target: {fileID: 6521596063384974244, guid: 2a8e071e74057b04584ace39064942ee,
         type: 3}
@@ -1134,10 +1134,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 8189960246927237233, guid: 2a8e071e74057b04584ace39064942ee,
+    - target: {fileID: 653011734254177249, guid: 2a8e071e74057b04584ace39064942ee,
         type: 3}
-      propertyPath: m_Color.a
-      value: 0
+      propertyPath: m_EffectColor.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a8e071e74057b04584ace39064942ee, type: 3}

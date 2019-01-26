@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 653011734254177250}
   - component: {fileID: 653011734254177249}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountCurrentResource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1 &7575386787064520451
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 8544990214384336261}
   - component: {fileID: 8189960246927237233}
   m_Layer: 5
-  m_Name: Resource
+  m_Name: ImageCurrentResource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

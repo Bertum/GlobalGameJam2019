@@ -231,6 +231,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentMaterial: 0
+  imageCurrentResource: {fileID: 0}
+  countCurrentReource: {fileID: 0}
+  wheatResource: {fileID: 21300000, guid: d7a2e26048aed5d4ca618d71c3a1ee56, type: 3}
+  woodResource: {fileID: 21300000, guid: 450cc3ee6ec5a8e4ab86639cfeb91dfa, type: 3}
+  stoneResource: {fileID: 21300000, guid: 2b9dd0edb1d53164590c314aaf676687, type: 3}
 --- !u!1 &5952794677657708298
 GameObject:
   m_ObjectHideFlags: 0

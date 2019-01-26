@@ -39,7 +39,7 @@ public class RankingController : MonoBehaviour
         {
             Time.timeScale = 0;
             gameFinished = true;
-            Score.text = "Your score: " + ranking.Time.ToString();
+            Score.text = "Your score: " + ranking.Time.ToString("0.00");
             RankingPanel.SetActive(true);
         }
     }

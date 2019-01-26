@@ -18,6 +18,13 @@ public class Wolf : MonoBehaviour
     private Dictionary<Type, WolfState> _mapping;
     private WolfState _current;
 
+    public RankingController RankingController;
+
+    private void Awake()
+    {
+        RankingController = GameObject.Find("RankingController").GetComponent<RankingController>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -142,7 +149,6 @@ public class BlowingState : WolfState
 
 public class MovingState : WolfState
 {
-    public GameObject RankingControllerGameObject;
     public MovingState(float stateDuration, Wolf wolf) : base(stateDuration, wolf)
     {
     }
@@ -156,7 +162,7 @@ public class MovingState : WolfState
         }
         else
         {
-            RankingControllerGameObject.GetComponent<RankingController>().FinishGame();
+            Wolf.RankingController.FinishGame();
         }
     }
 

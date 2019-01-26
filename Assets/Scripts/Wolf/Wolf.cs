@@ -100,7 +100,7 @@ public class AppearingState : WolfState
             Wolf.InitPosition = Wolf.transform.position;
             Wolf.transform.parent = null;
             Wolf.transform.position = Wolf.InitPosition;
-            Wolf.transform.Rotate(0, 0, Wolf.Wall.transform.rotation.eulerAngles.z-180);
+            Wolf.transform.Rotate(0, 0, Wolf.Wall.transform.rotation.eulerAngles.z - 180);
             Wolf.Renderer.enabled = true;
             Wolf.Alert = Wolf.gameObject.AddComponent<WolfAlert>();
             Wolf.GetComponentInChildren<ParticleSystem>().Play();
@@ -142,6 +142,7 @@ public class BlowingState : WolfState
 
 public class MovingState : WolfState
 {
+    public GameObject RankingControllerGameObject;
     public MovingState(float stateDuration, Wolf wolf) : base(stateDuration, wolf)
     {
     }
@@ -155,8 +156,7 @@ public class MovingState : WolfState
         }
         else
         {
-            // TODO: Loose
-            Debug.Log("You looser");
+            RankingControllerGameObject.GetComponent<RankingController>().FinishGame();
         }
     }
 

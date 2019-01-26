@@ -7,16 +7,18 @@ public class ResourceController : MonoBehaviour
     public Sprite wheatResource;
     public Sprite woodResource;
     public Sprite stoneResource;
-    public Material resourceMaterial = Material.Wheat;
+    public Material resourceMaterial;
 
     private PigController _pigController;
     private GameObject _materialGO;
     private SpriteRenderer _materialSpriteRenderer;
+    private ResourceFX _resourceFX;
 
     // Start is called before the first frame update
     void Start()
     {
         InitResource();
+        _resourceFX = GetComponent<ResourceFX>();
     }
 
     // Update is called once per frame
@@ -27,6 +29,7 @@ public class ResourceController : MonoBehaviour
             if (_pigController.IsGettingResource())
             {
                 _pigController.ChangeMaterial(resourceMaterial);
+                _resourceFX.PlayTakeResource(resourceMaterial);
             }
         }
     }

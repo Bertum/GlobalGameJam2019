@@ -342,7 +342,7 @@ InputManager:
     axis: 1
     joyNum: 1
   - serializedVersion: 3
-    m_Name: JR1Player1
+    m_Name: JRHPlayer1
     descriptiveName: Joystick right horizontal Player 1
     descriptiveNegativeName: 
     negativeButton: 
@@ -350,7 +350,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: 0
+    dead: 0.1
     sensitivity: 1
     snap: 1
     invert: 0
@@ -358,7 +358,7 @@ InputManager:
     axis: 3
     joyNum: 1
   - serializedVersion: 3
-    m_Name: JR2Player1
+    m_Name: JRVPlayer1
     descriptiveName: Joystick right vertical Player 1
     descriptiveNegativeName: 
     negativeButton: 
@@ -366,7 +366,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: 0
+    dead: 0.1
     sensitivity: 1
     snap: 1
     invert: 0

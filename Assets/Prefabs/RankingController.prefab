@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 1980098100765317879}
   - component: {fileID: 5110587106827996306}
   - component: {fileID: 5110587106827996305}
-  - component: {fileID: 1524811869863433001}
-  - component: {fileID: 1524811869863433002}
   m_Layer: 0
   m_Name: RankingController
   m_TagString: Untagged
@@ -58,27 +56,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ee548cb6049994bb3bb8c18f67d9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1524811869863433001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1524811869863433000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90a28ea862ed9634db62af5c9e0a0399, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1524811869863433002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1524811869863433000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3ee548cb6049994bb3bb8c18f67d9d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  GameFinished: 0
+  RankingPanel: {fileID: 0}
+  InputFieldText: {fileID: 0}

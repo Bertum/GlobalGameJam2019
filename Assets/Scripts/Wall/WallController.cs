@@ -19,10 +19,6 @@ public class WallController : MonoBehaviour
     private PigController _pigController;
     private WolfController _wolfController;
 
-    private Color _transparent = new Color(1f, 1f, 1f, 0f);
-    private Color _semiTransparent = new Color(1f, 1f, 1f, 0.3f);
-    private Color _opaque = new Color(1f, 1f, 1f, 1f);
-
     // Start is called before the first frame update
     void Start()
     {
@@ -91,7 +87,12 @@ public class WallController : MonoBehaviour
         }        
     }
 
-    private void DestroyWall()
+    private void CreateWall(Material material)
+    {
+
+    }
+
+    public void DestroyWall()
     {
         if (_life > 0)
         {
@@ -112,7 +113,7 @@ public class WallController : MonoBehaviour
         _wallCrackGO = gameObject.transform.GetChild(1).gameObject;
         _wallTypeSpriteRenderer = _wallTypeGO.GetComponent<SpriteRenderer>();
         _crackSpriteRenderer = _wallCrackGO.GetComponent<SpriteRenderer>();
-        _crackSpriteRenderer.color = _transparent;
+        _crackSpriteRenderer.color = new Color(1f, 1f, 1f, 0f);
         SetupWall();
     }
 
@@ -155,15 +156,15 @@ public class WallController : MonoBehaviour
     {
         if (IsWallNotWell)
         {
-            _crackSpriteRenderer.color = _semiTransparent;
+            _crackSpriteRenderer.color = new Color(1f, 1f, 1f, 0.5f);
         }
         else if (IsWallCracked)
         {
-            _crackSpriteRenderer.color = _opaque;
+            _crackSpriteRenderer.color = new Color(1f, 1f, 1f, 1f);
         }
         else
         {
-            _crackSpriteRenderer.color = _transparent;
+            _crackSpriteRenderer.color = new Color(1f, 1f, 1f, 0f);
         }
         _wallTypeSpriteRenderer.sprite = GetWallSprite();
     }

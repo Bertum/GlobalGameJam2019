@@ -1,66 +1,165 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Wolf : MonoBehaviour
 {
     public int MaxTimeToAppear;
-    public int Duration;
+    public int BlowDuration;
     public int WalkDuration;
+    public int Offset;
 
-    internal GameManager _manager;
+    internal GameManager Manager;
+    internal GameObject Wall;
+    internal Renderer Renderer;
+    internal WolfAlert Alert;
+    internal Vector3 InitPosition;
 
-    private float _nextAppear;
-    private float _duration;
-    private Renderer _renderer;
-    private WolfAlert _alert;
+    private Dictionary<Type, WolfState> _mapping;
+    private WolfState _current;
 
     // Start is called before the first frame update
     void Start()
     {
         if (MaxTimeToAppear <= 0) MaxTimeToAppear = 5;
-        if (Duration <= 0) Duration = 3;
+        if (BlowDuration <= 0) BlowDuration = 3;
         if (WalkDuration <= 0) WalkDuration = 3;
-        _nextAppear = MaxTimeToAppear;
-        _duration = Duration + _nextAppear;
-        _renderer = GetComponentInChildren<Renderer>();
-        _renderer.enabled = false;
+        if (Offset == 0) Offset = -1;
+        else Offset = -Math.Abs(Offset);
+
+        Renderer = GetComponentInChildren<Renderer>();
+        Renderer.enabled = false;
+
+        _mapping = new Dictionary<Type, WolfState>
+        {
+            { typeof(AppearingState), new AppearingState(MaxTimeToAppear, this) },
+            { typeof(BlowingState), new BlowingState(BlowDuration, this)},
+            { typeof(MovingState), new MovingState(WalkDuration, this)}
+        };
+        _current = _mapping[typeof(AppearingState)];
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_nextAppear <= 0d)
+        _current.Update();
+    }
+
+    internal void Progress<T>() where T : WolfState
+    {
+        _current = _mapping[typeof(T)];
+        _current.ResetState();
+    }
+}
+
+public abstract class WolfState
+{
+    protected readonly float _duration;
+    protected float _remaining;
+
+    protected WolfState(float stateDuration, Wolf wolf)
+    {
+        _duration = _remaining = stateDuration;
+        Wolf = wolf;
+    }
+
+    public Wolf Wolf { get; }
+
+    protected abstract void TriggerState();
+
+    public virtual void Update()
+    {
+        _remaining -= Time.deltaTime;
+        if (_remaining <= 0)
         {
-            var wallAppear = _manager.TryToAppear(this);
-            if (wallAppear != null)
-            {
-                transform.SetParent(wallAppear.transform);
-                transform.localPosition = new Vector3(-1, 0);
-                var position = transform.position;
-                transform.parent = null;
-                transform.position = position;
-                transform.rotation = wallAppear.transform.rotation;
-                _nextAppear = float.MaxValue;
-                _renderer.enabled = true;
-                _alert = gameObject.AddComponent<WolfAlert>();
-            }
+            TriggerState();
         }
-        else if (_duration <= 0d)
+    }
+
+    public virtual void ResetState()
+    {
+        _remaining = _duration;
+    }
+}
+
+public class AppearingState : WolfState
+{
+    public AppearingState(float stateDuration, Wolf wolf) : base(stateDuration, wolf)
+    {
+
+    }
+
+    protected override void TriggerState()
+    {
+        Wolf.Wall = Wolf.Manager.TryToAppear(Wolf);
+        if (Wolf.Wall != null)
         {
-            // TODO: Check if the wall is broken
-            _nextAppear = Random.Range(1, MaxTimeToAppear);
-            _duration = Duration + _nextAppear;
-            transform.parent = null;
-            _renderer.enabled = false;
-            _manager.Disappear(this);
-            Destroy(_alert);
-            _alert = null;
+            Wolf.transform.SetParent(Wolf.Wall.transform);
+            Wolf.transform.localPosition = new Vector3(Wolf.Offset, 0);
+            Wolf.InitPosition = Wolf.transform.position;
+            Wolf.transform.parent = null;
+            Wolf.transform.position = Wolf.InitPosition;
+            Wolf.transform.rotation = Wolf.Wall.transform.rotation;
+            Wolf.Renderer.enabled = true;
+            Wolf.Alert = Wolf.gameObject.AddComponent<WolfAlert>();
+            Wolf.Progress<BlowingState>();
+        }
+    }
+
+    public override void ResetState()
+    {
+        _remaining = UnityEngine.Random.Range(1, _duration);
+    }
+}
+
+public class BlowingState : WolfState
+{
+    public BlowingState(float stateDuration, Wolf wolf) : base(stateDuration, wolf)
+    {
+    }
+
+    protected override void TriggerState()
+    {
+        var wallCtrl = Wolf.Wall.GetComponent<TestWall>();
+        wallCtrl.DestroyWall();
+        if (!wallCtrl.IsNoWall)
+        {
+            Wolf.Renderer.enabled = false;
+            Wolf.Manager.Disappear(Wolf);
+            UnityEngine.Object.Destroy(Wolf.Alert);
+            Wolf.Alert = null;
+            Wolf.Progress<AppearingState>();
         }
         else
         {
-            _duration -= Time.deltaTime;
-            _nextAppear -= Time.deltaTime;
+            Wolf.Progress<MovingState>();
         }
+    }
+}
+
+public class MovingState : WolfState
+{
+    public MovingState(float stateDuration, Wolf wolf) : base(stateDuration, wolf)
+    {
+    }
+
+    public override void Update()
+    {
+        _remaining -= Time.deltaTime;
+        if (_remaining >= 0)
+        {
+            TriggerState();
+        }
+        else
+        {
+            // TODO: Loose
+            Debug.Log("You looser");
+        }
+    }
+
+    protected override void TriggerState()
+    {
+        var nextPosition = Vector3.Lerp(Wolf.Wall.transform.position, Wolf.InitPosition, _remaining / _duration);
+        Wolf.transform.position = nextPosition;
     }
 }

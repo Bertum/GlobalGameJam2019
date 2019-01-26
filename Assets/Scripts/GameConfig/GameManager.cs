@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
         if (_counter <= 0)
         {
             var wolf = Instantiate(WolfPrefab).GetComponentInChildren<Wolf>();
-            wolf._manager = this;
+            wolf.Manager = this;
             _enemies.Add(wolf, null);
             _counter += TimeToAdd;
         }

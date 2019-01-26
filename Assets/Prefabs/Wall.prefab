@@ -170,6 +170,8 @@ GameObject:
   - component: {fileID: 5142507883009341711}
   - component: {fileID: 950976551}
   - component: {fileID: 5082596216248114408}
+  - component: {fileID: 349376911}
+  - component: {fileID: 349376910}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -264,3 +266,127 @@ MonoBehaviour:
   stoneWall: {fileID: 21300000, guid: e89c2b9d14a1d7e48b86b45cf84eefc1, type: 3}
   wallMaterial: 1
   _life: 0
+--- !u!82 &349376911
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5142507883009341704}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &349376910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5142507883009341704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc346cba096bd8542861f234db4e4d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  repairWheatClips:
+  - {fileID: 8300000, guid: 18354e10fa3d2464bbd144cfd93e88d4, type: 3}
+  - {fileID: 8300000, guid: 6a779b7748f3569419644620edcbb60b, type: 3}
+  - {fileID: 8300000, guid: d94093d88f7cb0a4fa2342b06e677ae6, type: 3}
+  - {fileID: 8300000, guid: 5bb39b64d9b3bec4abec47cc1757b6e9, type: 3}
+  repairWoodClips:
+  - {fileID: 8300000, guid: 7adb361ac790fba47bf618e898af8940, type: 3}
+  - {fileID: 8300000, guid: 8f21a1a61f8641a43a8193665de0e983, type: 3}
+  - {fileID: 8300000, guid: 6b213833631ca184fb9d7098f8f71635, type: 3}
+  - {fileID: 8300000, guid: 7ea7bc8340b56e248bc4c060dbddaf45, type: 3}
+  repairStoneClips:
+  - {fileID: 8300000, guid: fa8298f2906c72143824e6160da9a1be, type: 3}
+  - {fileID: 8300000, guid: 7bb0502809ea36f4d94580310f7373f0, type: 3}
+  - {fileID: 8300000, guid: b861b964f3291a44f8407fd99bd32435, type: 3}
+  - {fileID: 8300000, guid: b861b964f3291a44f8407fd99bd32435, type: 3}
+  clipsCount: 4

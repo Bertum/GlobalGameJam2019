@@ -214,7 +214,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 268751530}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -2.64, y: 2.93, z: 0.11419438}
+  m_LocalPosition: {x: -0.49, y: 2.93, z: 0.11419438}
   m_LocalScale: {x: 0.35671, y: 0.35671, z: 0.35671}
   m_Children: []
   m_Father: {fileID: 0}
@@ -308,18 +308,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0469141, y: -0.38839668}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.2, y: 0.2}
+    oldSize: {x: 13.63, y: 6.78}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
-    drawMode: 2
+    drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 11.415848, y: 4.1071606}
   m_EdgeRadius: 0
 --- !u!212 &321196644
 SpriteRenderer:
@@ -358,11 +358,11 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 44e011c037443ae4a88958e2f47d3f4d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 2
+  m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -376,13 +376,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 321196641}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.54, y: 3.0815547, z: 0.11419438}
-  m_LocalScale: {x: 1, y: 1, z: 0.92625}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalPosition: {x: -8.71, y: 2.81, z: 0.11419438}
+  m_LocalScale: {x: 0.28951213, y: 0.41946903, z: 2.634255}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!114 &321196646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -489,7 +489,7 @@ PrefabInstance:
     - target: {fileID: 5142507883009341709, guid: 49ee1e345bdb2714b98e8db4f289537d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.78
+      value: -4.58
       objectReference: {fileID: 0}
     - target: {fileID: 5142507883009341709, guid: 49ee1e345bdb2714b98e8db4f289537d,
         type: 3}

@@ -352,12 +352,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 364982632}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f8b323cb7373654ba2d966565a4fe6c, type: 3}
+  m_Script: {fileID: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_Name: 
   m_EditorClassIdentifier: 
   TimeToAdd: 10
   WolfPrefab: {fileID: 8523992642435007378, guid: 7aab6069533eed9418defbe9df810a05,
     type: 3}
+  _walls: []
+  _counter: 0
 --- !u!1001 &442532856
 PrefabInstance:
   m_ObjectHideFlags: 0

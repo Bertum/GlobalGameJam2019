@@ -32,7 +32,7 @@ public class WallController : MonoBehaviour
         {
             if (_pigController.IsRepairingWall())
             {
-                RepairWall(_pigController.currentMaterial);
+                RepairWall(_pigController.GetCurrentMaterial());
             }
         }
 

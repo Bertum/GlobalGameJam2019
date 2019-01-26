@@ -86,7 +86,7 @@ public class MainMenuController : MonoBehaviour
         foreach (var rank in ranking.rankings)
         {
             CreateText(rank.PlayerName, arialFont);
-            CreateText(rank.Time.ToString(), arialFont);
+            CreateText(rank.Time.ToString("0.00"), arialFont);
         }
     }
 

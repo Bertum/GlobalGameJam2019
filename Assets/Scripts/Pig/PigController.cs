@@ -3,7 +3,7 @@
 public class PigController : MonoBehaviour
 {
     private int wheat, wood, stone;
-    private Material currentMaterial;
+    public Material currentMaterial;
     private JoystickController joystickController;
 
     private void Awake()
@@ -14,13 +14,7 @@ public class PigController : MonoBehaviour
 
     private void Update()
     {
-        if (joystickController.IsPressButtonA() || joystickController.IsPressButtonB() ||
-            joystickController.IsPressButtonX() || joystickController.IsPressButtonY())
-        {
-            //Wheck if the pig is in a wall or container
-            //TODO detect in the trigger the container where the player is an change the material
-            //ChangeMaterial();
-        }
+
     }
 
 
@@ -52,7 +46,7 @@ public class PigController : MonoBehaviour
         return used;
     }
 
-    private void ChangeMaterial(Material newMaterial)
+    public void ChangeMaterial(Material newMaterial)
     {
         currentMaterial = newMaterial;
         ResetMaterials();
@@ -75,6 +69,13 @@ public class PigController : MonoBehaviour
 
     public bool IsRepairingWall()
     {
+        //return joystickController.IsPressAnyButton();
+        return Input.GetKeyDown(KeyCode.R);
+    }
+
+    public bool IsGettingResource()
+    {
+        //return joystickController.IsPressAnyButton();
         return Input.GetKeyDown(KeyCode.R);
     }
 

@@ -11,6 +11,7 @@ public class RankingController : MonoBehaviour
     private LoadSaveRanking loadSaveRanking;
     public GameObject RankingPanel;
     public Text InputFieldText;
+    public Text Score;
 
     private void Awake()
     {
@@ -32,6 +33,7 @@ public class RankingController : MonoBehaviour
     public void FinishGame()
     {
         GameFinished = true;
+        Score.text = "Your score: " + ranking.Time.ToString();
         RankingPanel.SetActive(true);
     }
 

@@ -15,6 +15,7 @@ public class MainMenuController : MonoBehaviour
 
     private void Awake()
     {
+        //Load all the ranking
         ranking = RankingLoadSave.GetComponent<LoadSaveRanking>().LoadFile();
         Credits.SetActive(false);
         RankingPanel.SetActive(false);

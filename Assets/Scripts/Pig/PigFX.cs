@@ -5,6 +5,7 @@ using UnityEngine;
 public class PigFX : MonoBehaviour
 {
     public AudioClip[] gruntClips;
+    public AudioClip[] deathClips;
     public int clipsCount;
 
     private AudioSource _audioSource;
@@ -14,8 +15,7 @@ public class PigFX : MonoBehaviour
     void Start()
     {
         _audioSource = GetComponent<AudioSource>();
-        _keepGrunting = false;
-        InitPlayGrunt();
+        _keepGrunting = false;    
     }
 
     public void InitPlayGrunt()
@@ -36,12 +36,12 @@ public class PigFX : MonoBehaviour
         }        
     }
 
-    private AudioClip GetTakeGruntClip()
+    private AudioClip GetRandomClip(AudioClip[] clips)
     {
-        if (gruntClips != null)
+        if (clips != null)
         {
             int index = Random.Range(0, clipsCount);
-            return gruntClips[index];
+            return clips[index];
         }
         else
         {
@@ -49,9 +49,16 @@ public class PigFX : MonoBehaviour
         }
     }
 
+    public void PlayDeath()
+    {
+        StopPlayGrunt();
+        _audioSource.clip = GetRandomClip(deathClips);
+        _audioSource.Play();        
+    }
+
     private void PlayGrunt()
     {
-        _audioSource.clip = GetTakeGruntClip();
+        _audioSource.clip = GetRandomClip(gruntClips);
         _audioSource.Play();
     }
 

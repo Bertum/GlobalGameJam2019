@@ -212,6 +212,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7b2d436679d2dd14a9275497100d735c, type: 3}
   - {fileID: 8300000, guid: c4ddcb116884f00458b7a66726d2f3b3, type: 3}
   - {fileID: 8300000, guid: da84b1a58e5d8704a8a5616e0371dff5, type: 3}
+  deathClips:
+  - {fileID: 8300000, guid: c7cab11559d83924e90b32816f84e8fd, type: 3}
+  - {fileID: 8300000, guid: 8a5d0e0a3cb86cb46af7c0593e44b066, type: 3}
+  - {fileID: 8300000, guid: c7cab11559d83924e90b32816f84e8fd, type: 3}
+  - {fileID: 8300000, guid: 8a5d0e0a3cb86cb46af7c0593e44b066, type: 3}
   clipsCount: 4
 --- !u!114 &1980002343
 MonoBehaviour:

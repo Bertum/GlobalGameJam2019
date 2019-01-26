@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WolfManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     public float TimeToAdd;
     public GameObject WolfPrefab;
@@ -19,6 +19,25 @@ public class WolfManager : MonoBehaviour
         if (TimeToAdd == 0f) TimeToAdd = 5;
         _walls = GameObject.FindGameObjectsWithTag(GameConfiguration.WALL);
         _freeWalls.AddRange(_walls);
+
+        var difficulty = (Difficulty) PlayerPrefs.GetInt("Difficulty");
+        // TODO: Set material based on difficulty
+        switch (difficulty)
+        {
+            case Difficulty.Easy:
+                break;
+            case Difficulty.Medium:
+                break;
+            case Difficulty.Hard:
+                break;
+            default:
+                break;
+        }
+
+        foreach (var wall in _walls)
+        {
+            // TODO: Set material based on difficulty
+        }
     }
 
     // Update is called once per frame

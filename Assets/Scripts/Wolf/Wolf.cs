@@ -8,7 +8,7 @@ public class Wolf : MonoBehaviour
     public int Duration;
     public int WalkDuration;
 
-    internal WolfManager _manager;
+    internal GameManager _manager;
 
     private float _nextAppear;
     private float _duration;

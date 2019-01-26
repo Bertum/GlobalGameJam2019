@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class RankingController : MonoBehaviour
 {
-    public bool GameFinished;
+    private bool gameFinished, savedScore;
     private Ranking ranking;
     private RankingData rankingList;
     private LoadSaveRanking loadSaveRanking;
@@ -15,16 +16,18 @@ public class RankingController : MonoBehaviour
 
     private void Awake()
     {
+        Time.timeScale = 1;
         RankingPanel.SetActive(false);
         loadSaveRanking = GetComponent<LoadSaveRanking>();
         rankingList = loadSaveRanking.LoadFile();
-        GameFinished = false;
+        gameFinished = false;
+        savedScore = false;
         ranking = new Ranking();
     }
 
     void Update()
     {
-        if (!GameFinished)
+        if (!gameFinished)
         {
             ranking.Time += Time.deltaTime;
         }
@@ -32,9 +35,13 @@ public class RankingController : MonoBehaviour
 
     public void FinishGame()
     {
-        GameFinished = true;
-        Score.text = "Your score: " + ranking.Time.ToString();
-        RankingPanel.SetActive(true);
+        if (!gameFinished)
+        {
+            Time.timeScale = 0;
+            gameFinished = true;
+            Score.text = "Your score: " + ranking.Time.ToString();
+            RankingPanel.SetActive(true);
+        }
     }
 
     /// <summary>
@@ -42,15 +49,21 @@ public class RankingController : MonoBehaviour
     /// </summary>
     public void SaveRanking()
     {
-        ranking.Date = DateTime.Now;
-        ranking.PlayerName = InputFieldText.text;
-        rankingList.rankings.Add(ranking);
-        if (rankingList.rankings.Count > GameConfiguration.MAX_RANKING_RECORDS)
+        if (!savedScore)
         {
-            rankingList.rankings.OrderByDescending(o => o.Time).ThenBy(o => o.Date);
-            //Remove the ranking with less time
-            rankingList.rankings.RemoveAt(0);
+            savedScore = true;
+            ranking.Date = DateTime.Now;
+            ranking.PlayerName = InputFieldText.text;
+            rankingList.rankings.Add(ranking);
+            if (rankingList.rankings.Count > GameConfiguration.MAX_RANKING_RECORDS)
+            {
+                rankingList.rankings.OrderByDescending(o => o.Time).ThenBy(o => o.Date);
+                //Remove the ranking with less time
+                rankingList.rankings.RemoveAt(0);
+            }
+            loadSaveRanking.SaveFile(rankingList);
+            SceneManager.LoadSceneAsync(GameConfiguration.MAINMENUSCENE);
         }
-        loadSaveRanking.SaveFile(rankingList);
+
     }
 }

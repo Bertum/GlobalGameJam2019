@@ -374,8 +374,8 @@ InputManager:
     axis: 4
     joyNum: 1
   - serializedVersion: 3
-    m_Name: JLVPlayer2
-    descriptiveName: Joystick left vertical Player 2
+    m_Name: Submit
+    descriptiveName: Joystick right vertical Player 1
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: 
@@ -385,39 +385,55 @@ InputManager:
     dead: 0
     sensitivity: 1
     snap: 1
-    invert: 1
-    type: 2
-    axis: 1
-    joyNum: 2
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 0
   - serializedVersion: 3
-    m_Name: JLVPlayer3
-    descriptiveName: Joystick left vertical Player 3
+    m_Name: Cancel
+    descriptiveName: Joystick right vertical Player 1
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: 
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: 0.1
+    dead: 0
     sensitivity: 1
     snap: 1
-    invert: 1
-    type: 2
-    axis: 1
-    joyNum: 3
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 0
   - serializedVersion: 3
-    m_Name: JLVPlayer4
-    descriptiveName: Joystick left vertical Player 4
+    m_Name: Horizontal
+    descriptiveName: Joystick right vertical Player 1
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: 
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: 0.1
+    dead: 0
     sensitivity: 1
     snap: 1
-    invert: 1
-    type: 2
-    axis: 1
-    joyNum: 4
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 0
+  - serializedVersion: 3
+    m_Name: Vertical
+    descriptiveName: Joystick right vertical Player 1
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: 0
+    sensitivity: 1
+    snap: 1
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 0

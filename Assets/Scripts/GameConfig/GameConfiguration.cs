@@ -20,4 +20,7 @@
 
     //Ranking
     public const int MAX_RANKING_RECORDS = 5;
+
+    //Grunt sound limit (seconds)
+    public const int GRUNT_LIMIT = 5;
 }

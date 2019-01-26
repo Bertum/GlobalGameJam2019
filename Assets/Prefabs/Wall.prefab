@@ -262,5 +262,5 @@ MonoBehaviour:
   wheatWall: {fileID: 21300000, guid: c60de62d18175ce4ab644dff3360c2c2, type: 3}
   woodWall: {fileID: 21300000, guid: 16453d5d473689e44a5d4c6ab1996c18, type: 3}
   stoneWall: {fileID: 21300000, guid: e89c2b9d14a1d7e48b86b45cf84eefc1, type: 3}
-  wallMaterial: 0
+  wallMaterial: 1
   _life: 0

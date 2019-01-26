@@ -9,7 +9,7 @@ public class WallController : MonoBehaviour
     public Sprite wheatWall;
     public Sprite woodWall;
     public Sprite stoneWall;
-    public Material wallMaterial = Material.Wheat;
+    public Material wallMaterial;
 
     public int _life;
     private GameObject _wallTypeGO;

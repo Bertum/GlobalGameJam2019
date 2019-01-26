@@ -120,7 +120,7 @@ public class BlowingState : WolfState
 
     protected override void TriggerState()
     {
-        var wallCtrl = Wolf.Wall.GetComponent<TestWall>();
+        var wallCtrl = Wolf.Wall.GetComponent<WallController>();
         wallCtrl.DestroyWall();
         if (!wallCtrl.IsNoWall)
         {

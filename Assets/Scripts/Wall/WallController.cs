@@ -84,7 +84,7 @@ public class WallController : MonoBehaviour
             InitHits();
         }
 
-        if (_life < hits)
+        if (_life < hits && wallMaterial == material)
         {
             _life++;
             SetupWall();

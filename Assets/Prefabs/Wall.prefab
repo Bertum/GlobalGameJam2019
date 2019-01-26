@@ -147,7 +147,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c60de62d18175ce4ab644dff3360c2c2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ac397089055348a4d8f0038636fdb828, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -155,7 +155,7 @@ SpriteRenderer:
   m_Size: {x: 19.2, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &5142507883009341704
@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 5142507883009341709}
   - component: {fileID: 5142507883009341711}
   - component: {fileID: 950976551}
-  - component: {fileID: 6346839218432723135}
+  - component: {fileID: 5082596216248114408}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -245,7 +245,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &6346839218432723135
+--- !u!114 &5082596216248114408
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -254,13 +254,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5142507883009341704}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46662fc53ce130045b5de6821fefd0fb, type: 3}
+  m_Script: {fileID: 11500000, guid: 352dbee46958fda4da56b61cb8b9deeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hits: 0
-  noWall: {fileID: 0}
-  wheatWall: {fileID: 21300000, guid: 781b9bd782e2c214d8db890e688c8e6f, type: 3}
-  woodWall: {fileID: 21300000, guid: e2ff54a9a06212448a86dbefdf47dccb, type: 3}
-  stoneWall: {fileID: 21300000, guid: 108165919834ab848b81e307d12a72b1, type: 3}
+  noWall: {fileID: 21300000, guid: ac397089055348a4d8f0038636fdb828, type: 3}
+  wheatWall: {fileID: 21300000, guid: c60de62d18175ce4ab644dff3360c2c2, type: 3}
+  woodWall: {fileID: 21300000, guid: 16453d5d473689e44a5d4c6ab1996c18, type: 3}
+  stoneWall: {fileID: 21300000, guid: e89c2b9d14a1d7e48b86b45cf84eefc1, type: 3}
   wallMaterial: 0
   _life: 0

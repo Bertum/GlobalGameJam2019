@@ -6,6 +6,11 @@ public class PigController : MonoBehaviour
     public Material currentMaterial;
     private JoystickController joystickController;
 
+    public void Start()
+    {
+        this.joystickController = GetComponent<JoystickController>();
+    }
+
     private void Awake()
     {
         ResetMaterials();
@@ -69,14 +74,14 @@ public class PigController : MonoBehaviour
 
     public bool IsRepairingWall()
     {
-        //return joystickController.IsPressAnyButton();
-        return Input.GetKeyDown(KeyCode.R);
+        return joystickController.IsPressAnyButton();
+        //return Input.GetKeyDown(KeyCode.R);
     }
 
     public bool IsGettingResource()
     {
-        //return joystickController.IsPressAnyButton();
-        return Input.GetKeyDown(KeyCode.R);
+        return joystickController.IsPressAnyButton();
+        //return Input.GetKeyDown(KeyCode.R);
     }
 
     public Material GetCurrentMaterial()

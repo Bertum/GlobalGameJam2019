@@ -1,18 +1,25 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuController : MonoBehaviour
 {
-    public GameObject buttons;
-    public GameObject credits;
-    public GameObject ranking;
-    public GameObject difficultySelector;
+    public GameObject Buttons;
+    public GameObject Credits;
+    public GameObject RankingPanel;
+    public GameObject DifficultySelector;
+    public GameObject RankingLoadSave;
+    public GameObject RankingGrid;
+    private RankingData ranking;
 
     private void Awake()
     {
-        credits.SetActive(false);
-        ranking.SetActive(false);
-        difficultySelector.SetActive(false);
+        ranking = RankingLoadSave.GetComponent<LoadSaveRanking>().LoadFile();
+        Credits.SetActive(false);
+        RankingPanel.SetActive(false);
+        DifficultySelector.SetActive(false);
+        LoadRankingMenu();
     }
 
     private void LoadGame()
@@ -46,27 +53,51 @@ public class MainMenuController : MonoBehaviour
 
     public void ShowCredits()
     {
-        buttons.SetActive(false);
-        credits.SetActive(true);
+        Buttons.SetActive(false);
+        Credits.SetActive(true);
     }
 
     public void ShowButtons()
     {
-        difficultySelector.SetActive(false);
-        ranking.SetActive(false);
-        credits.SetActive(false);
-        buttons.SetActive(true);
+        DifficultySelector.SetActive(false);
+        RankingPanel.SetActive(false);
+        Credits.SetActive(false);
+        Buttons.SetActive(true);
     }
 
     public void ShowRanking()
     {
-        buttons.SetActive(false);
-        ranking.SetActive(true);
+        Buttons.SetActive(false);
+        RankingPanel.SetActive(true);
     }
 
     public void ShowDifficultySelector()
     {
-        buttons.SetActive(false);
-        difficultySelector.SetActive(true);
+        Buttons.SetActive(false);
+        DifficultySelector.SetActive(true);
+    }
+
+    private void LoadRankingMenu()
+    {
+        Font arialFont = (Font)Resources.GetBuiltinResource(typeof(Font), "Arial.ttf");
+        //Sort by higher score and first registered
+        ranking.rankings.OrderBy(o => o.Time).ThenByDescending(o => o.Date);
+        foreach (var rank in ranking.rankings)
+        {
+            CreateText(rank.PlayerName, arialFont);
+            CreateText(rank.Time.ToString(), arialFont);
+        }
+    }
+
+    private void CreateText(string text, Font arialFont)
+    {
+        GameObject newText = new GameObject();
+        newText.transform.SetParent(RankingGrid.transform);
+
+        Text myText = newText.AddComponent<Text>();
+        myText.font = arialFont;
+        myText.material = arialFont.material;
+        myText.text = text;
+        myText.alignment = TextAnchor.MiddleCenter;
     }
 }

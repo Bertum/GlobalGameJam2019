@@ -18,11 +18,13 @@ public class WallController : MonoBehaviour
     private GameObject _wallCrackGO;
     private PigController _pigController;
     private WolfController _wolfController;
+    private WallFX _wallFX;
 
     // Start is called before the first frame update
     void Start()
     {
         InitWall();
+        _wallFX = GetComponent<WallFX>();
     }
 
     // Update is called once per frame
@@ -84,12 +86,8 @@ public class WallController : MonoBehaviour
         {
             _life++;
             SetupWall();
+            _wallFX.PlayRepair(material);
         }        
-    }
-
-    private void CreateWall(Material material)
-    {
-
     }
 
     public void DestroyWall()

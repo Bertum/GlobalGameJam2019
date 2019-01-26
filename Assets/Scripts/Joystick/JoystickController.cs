@@ -30,6 +30,16 @@ public class JoystickController : MonoBehaviour
     private void FixedUpdate()
     {
         Move(GetValueJoystickLeftHorizontal(), GetValueJoystickLeftVertical());
+
+        if (IsPressJoystick())
+        {
+            float angle = Mathf.Atan2(GetValueJoystickLeftHorizontal() * -1, GetValueJoystickLeftVertical()) * Mathf.Rad2Deg;
+            this.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        }
+    }
+
+    public void Update()
+    {
     }
 
     private void Move(float horizontalMovement, float verticalMovement)
@@ -106,5 +116,10 @@ public class JoystickController : MonoBehaviour
     {
         return IsPressButtonA() || IsPressButtonB() ||
             IsPressButtonX() || IsPressButtonY();
+    }
+
+    public bool IsPressJoystick()
+    {
+        return IsJoystickLeftHorizontalLeft() || IsJoystickLeftHorizontalRight() || IsJoystickLeftVerticalTop() || IsJoystickLeftVerticalDown();
     }
 }

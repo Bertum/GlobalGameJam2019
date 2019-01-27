@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -20,15 +19,15 @@ public class GameManager : MonoBehaviour
         _walls = GameObject.FindGameObjectsWithTag(GameConfiguration.WALL);
         _freeWalls.AddRange(_walls);
 
-        var difficulty = (Difficulty) PlayerPrefs.GetInt("Difficulty");
+        var difficulty = (Difficulty)PlayerPrefs.GetInt("Difficulty");
         Material wallMaterial;
         switch (difficulty)
         {
             case Difficulty.Easy:
-                wallMaterial = Material.Stone;
+                wallMaterial = Material.Wheat;
                 break;
             case Difficulty.Hard:
-                wallMaterial = Material.Wheat;
+                wallMaterial = Material.Stone;
                 break;
             case Difficulty.Medium:
             default:

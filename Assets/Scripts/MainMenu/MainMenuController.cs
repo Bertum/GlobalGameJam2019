@@ -61,7 +61,7 @@ public class MainMenuController : MonoBehaviour
     public void ShowCredits()
     {
         Buttons.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(BackCreditBtn, null);
+        EventSystem.current.SetSelectedGameObject(BackCreditBtn);
         Credits.SetActive(true);
     }
 
@@ -70,21 +70,21 @@ public class MainMenuController : MonoBehaviour
         DifficultySelector.SetActive(false);
         RankingPanel.SetActive(false);
         Credits.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(OnePlayerBtn, null);
+        EventSystem.current.SetSelectedGameObject(OnePlayerBtn);
         Buttons.SetActive(true);
     }
 
     public void ShowRanking()
     {
         Buttons.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(BackRanking, null);
+        EventSystem.current.SetSelectedGameObject(BackRanking);
         RankingPanel.SetActive(true);
     }
 
     public void ShowDifficultySelector()
     {
         Buttons.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(ButtonEasy, null);
+        EventSystem.current.SetSelectedGameObject(ButtonEasy);
         DifficultySelector.SetActive(true);
     }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -11,6 +12,7 @@ public class RankingController : MonoBehaviour
     private RankingData rankingList;
     private LoadSaveRanking loadSaveRanking;
     public GameObject RankingPanel;
+    public GameObject SubmitButton;
     public Text InputFieldText;
     public Text Score;
 
@@ -38,12 +40,13 @@ public class RankingController : MonoBehaviour
         if (!gameFinished)
         {
             var pigFX = FindObjectOfType<PigFX>();
-            if(pigFX != null)
+            if (pigFX != null)
             {
                 pigFX.PlayDeath();
             }
             Time.timeScale = 0;
             gameFinished = true;
+            EventSystem.current.SetSelectedGameObject(SubmitButton);
             Score.text = "Your score: " + ranking.Time.ToString("0.00");
             RankingPanel.SetActive(true);
         }
@@ -69,6 +72,5 @@ public class RankingController : MonoBehaviour
             loadSaveRanking.SaveFile(rankingList);
             SceneManager.LoadSceneAsync(GameConfiguration.MAINMENUSCENE);
         }
-
     }
 }

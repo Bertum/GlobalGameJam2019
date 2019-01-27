@@ -15,6 +15,8 @@ public class PigController : MonoBehaviour
     private GameObject _materialGO;
     private SpriteRenderer _materialSpriteRenderer;
     private PigFX _pigFX;
+    private Animator _hammerAnimator;
+    private GameObject _hammerGO;
 
     private InputKeyController inputKeyController;
 
@@ -22,10 +24,12 @@ public class PigController : MonoBehaviour
     {
         this.joystickController = GetComponent<JoystickController>();
         _materialGO = gameObject.transform.GetChild(1).gameObject;
+        _hammerGO = gameObject.transform.GetChild(2).gameObject;
         _materialSpriteRenderer = _materialGO.GetComponent<SpriteRenderer>();
         _materialSpriteRenderer.sprite = null;
         _pigFX = GetComponent<PigFX>();
         this.inputKeyController = GetComponent<InputKeyController>();
+        _hammerAnimator = _hammerGO.GetComponent<Animator>();
     }
 
     private void Awake()
@@ -49,6 +53,7 @@ public class PigController : MonoBehaviour
 
     public void UseMaterial()
     {
+        _hammerAnimator.SetTrigger("Hit");
         if (currentMaterial == Material.Wheat && wheat > 0)
         {
             wheat--;

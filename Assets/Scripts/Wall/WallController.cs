@@ -38,7 +38,7 @@ public class WallController : MonoBehaviour
                 {
                     _pigController.UseMaterial();
                 }                
-            }
+            }            
         }
 
         if(_wolfController != null)
@@ -101,7 +101,8 @@ public class WallController : MonoBehaviour
             _life--;
             if(_life == 0)
             {
-                wallMaterial = Material.None;
+                _wallFX.PlayExplode(wallMaterial);
+                wallMaterial = Material.None;                
             }
             SetupWall();
         }        

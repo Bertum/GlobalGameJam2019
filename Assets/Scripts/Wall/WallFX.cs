@@ -7,6 +7,9 @@ public class WallFX : MonoBehaviour
     public AudioClip[] repairWheatClips;
     public AudioClip[] repairWoodClips;
     public AudioClip[] repairStoneClips;
+    public AudioClip explodeWheatClip;
+    public AudioClip explodeWoodClip;
+    public AudioClip explodeStoneClip;
     public int clipsCount;
 
     private AudioSource _audioSource;
@@ -20,6 +23,12 @@ public class WallFX : MonoBehaviour
     public void PlayRepair(Material material)
     {
         _audioSource.clip = GetRepairMaterialClip(material);
+        _audioSource.Play();
+    }
+
+    public void PlayExplode(Material material)
+    {
+        _audioSource.clip = GetExplodeMaterialClip(material);
         _audioSource.Play();
     }
 
@@ -46,6 +55,22 @@ public class WallFX : MonoBehaviour
         else
         {
             return null;
+        }
+    }
+
+    private AudioClip GetExplodeMaterialClip(Material material)
+    {
+        switch (material)
+        {
+            case Material.Wheat:
+                return explodeWheatClip;
+            case Material.Wood:
+                return explodeWoodClip;
+            case Material.Stone:
+                return explodeStoneClip;
+            default:
+                return null;
+
         }
     }
 }

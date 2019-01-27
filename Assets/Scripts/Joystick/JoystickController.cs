@@ -27,7 +27,7 @@ public class JoystickController : MonoBehaviour
         this.rigidbodyComponent = GetComponent<Rigidbody2D>();
     }
 
-    private void FixedUpdate()
+    public void MoveUpdate()
     {
         Move(GetValueJoystickLeftHorizontal(), GetValueJoystickLeftVertical());
 
@@ -36,10 +36,6 @@ public class JoystickController : MonoBehaviour
             float angle = Mathf.Atan2(GetValueJoystickLeftHorizontal() * -1, GetValueJoystickLeftVertical()) * Mathf.Rad2Deg;
             this.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         }
-    }
-
-    public void Update()
-    {
     }
 
     private void Move(float horizontalMovement, float verticalMovement)

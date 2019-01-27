@@ -27,7 +27,7 @@ public class InputKeyController : MonoBehaviour
         
     }
 
-    private void FixedUpdate()
+    public void MoveUpdate()
     {
         Move(GetValueHorizontal(), GetValueVertical());
 

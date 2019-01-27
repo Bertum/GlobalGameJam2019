@@ -7,12 +7,14 @@ public class GameManager : MonoBehaviour
     public GameObject WolfPrefab;
     public GameObject PlayerPrefab;
     public Sprite[] PlayerSprites;
+    public MusicManager MusicManagerScript;
 
     private GameObject[] _walls;
 
     private readonly Dictionary<Wolf, GameObject> _enemies = new Dictionary<Wolf, GameObject>();
     private readonly List<GameObject> _freeWalls = new List<GameObject>();
     private float _counter = 0;
+    private int _wolfCounter = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -77,12 +79,13 @@ public class GameManager : MonoBehaviour
         {
             _counter -= Time.deltaTime;
         }
+        MusicManagerScript.CheckWolfs(_wolfCounter);
     }
 
     public GameObject TryToAppear(Wolf w)
     {
         if (_freeWalls.Count == 0) return null;
-
+        _wolfCounter++;
         var i = Mathf.RoundToInt(Random.Range(0, _freeWalls.Count));
         var wallAppear = _freeWalls[i];
         _freeWalls.RemoveAt(i);

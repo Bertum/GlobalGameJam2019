@@ -3,23 +3,24 @@ using UnityEngine.UI;
 
 public class PigController : MonoBehaviour
 {
-    private int wheat, wood, stone;
+    public int wheat, wood, stone;
     public Material currentMaterial;
+    public bool useKeys;
     private JoystickController joystickController;
 
-    private Image imageCurrentResource;
-    private Text countCurrentReource;
     public Sprite wheatResource;
     public Sprite woodResource;
     public Sprite stoneResource;
 
+    private GameObject _materialGO;
+    private SpriteRenderer _materialSpriteRenderer;
+
     public void Start()
     {
         this.joystickController = GetComponent<JoystickController>();
-        this.imageCurrentResource = GameObject.Find("ImageCurrentResource").GetComponent<Image>();
-        this.countCurrentReource = GameObject.Find("CountCurrentResource").GetComponent<Text>();
-        this.imageCurrentResource.color = new Color(0, 0, 0, 0);
-        this.countCurrentReource.color = new Color(0, 0, 0, 0);
+        _materialGO = gameObject.transform.GetChild(1).gameObject;
+        _materialSpriteRenderer = _materialGO.GetComponent<SpriteRenderer>();
+        _materialSpriteRenderer.sprite = null;
     }
 
     private void Awake()
@@ -28,38 +29,48 @@ public class PigController : MonoBehaviour
 
     }
 
-    private void Update()
+    public void UseMaterial()
     {
-
-    }
-
-
-    private bool UseMaterial()
-    {
-        bool used = false;
         if (currentMaterial == Material.Wheat && wheat > 0)
         {
-            // TODO reproduce use wheat sound
             wheat--;
-            used = true;
+            if (wheat == 0)
+            {
+                //No more resources
+                _materialSpriteRenderer.sprite = null;
+            }
         }
         else if (currentMaterial == Material.Wood && wood > 0)
         {
-            // TODO reproduce use wood sound
             wood--;
-            used = true;
+            if (wood == 0)
+            {
+                //No more resources
+                _materialSpriteRenderer.sprite = null;
+            }
         }
         else if (currentMaterial == Material.Stone && stone > 0)
         {
-            // TODO reproduce use stone sound
             stone--;
-            used = true;
+            if(stone == 0)
+            {
+                //No more resources
+                _materialSpriteRenderer.sprite = null;
+            }
         }
-        if (!used)
+    }
+
+    public bool TryUseMaterial()
+    {
+        if (wheat > 0 || wood > 0 || stone > 0)
+        {
+            return true;
+        }
+        else
         {
             // TODO sound pig without materials?
+            return false;
         }
-        return used;
     }
 
     public void ChangeMaterial(Material newMaterial)
@@ -69,39 +80,42 @@ public class PigController : MonoBehaviour
         switch (currentMaterial)
         {
             case Material.Wheat:
-                // TODO reproduce get wheat sound
                 wheat = GameConfiguration.WHEATCAPACITY;
-                this.imageCurrentResource.sprite = wheatResource;
-                this.countCurrentReource.text = string.Concat(wheat);
+                _materialSpriteRenderer.sprite = wheatResource;
                 break;
             case Material.Wood:
-                // TODO reproduce get wood sound
                 wood = GameConfiguration.WOODCAPACITY;
-                this.imageCurrentResource.sprite = woodResource;
-                this.countCurrentReource.text = string.Concat(wood);
+                _materialSpriteRenderer.sprite = woodResource;
                 break;
             case Material.Stone:
-                // TODO reproduce get stone sound
                 stone = GameConfiguration.STONECAPACITY;
-                this.imageCurrentResource.sprite = stoneResource;
-                this.countCurrentReource.text = string.Concat(stone);
+                _materialSpriteRenderer.sprite = stoneResource;
                 break;
         }
-
-        this.imageCurrentResource.color = new Color(255, 255, 255, 255);
-        this.countCurrentReource.color = new Color(255, 201, 0, 255);
     }
 
     public bool IsRepairingWall()
     {
-        return joystickController.IsPressAnyButton();
-        //return Input.GetKeyDown(KeyCode.R);
+        if (useKeys)
+        {
+            return Input.GetKeyDown(KeyCode.R) && TryUseMaterial();
+        }
+        else
+        {
+            return joystickController.IsPressAnyButton() && TryUseMaterial();
+        }
     }
 
     public bool IsGettingResource()
     {
-        return joystickController.IsPressAnyButton();
-        //return Input.GetKeyDown(KeyCode.R);
+        if (useKeys)
+        {
+            return Input.GetKeyDown(KeyCode.R);
+        }
+        else
+        {
+            return joystickController.IsPressAnyButton();
+        }
     }
 
     public Material GetCurrentMaterial()

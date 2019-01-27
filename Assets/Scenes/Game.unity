@@ -1750,6 +1750,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1560345177f42fe4eb88cdff8975ceeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeToAdd: 1
+  TimeToAdd: 10
   WolfPrefab: {fileID: 7522996799597246251, guid: 65940bf5f4d06574184625c09d417566,
     type: 3}

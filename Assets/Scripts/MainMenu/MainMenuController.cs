@@ -11,6 +11,7 @@ public class MainMenuController : MonoBehaviour
     public GameObject DifficultySelector;
     public GameObject RankingLoadSave;
     public GameObject RankingGrid;
+    public Font font;
     private RankingData ranking;
 
     private void Awake()
@@ -80,25 +81,24 @@ public class MainMenuController : MonoBehaviour
 
     private void LoadRankingMenu()
     {
-        Font arialFont = (Font)Resources.GetBuiltinResource(typeof(Font), "Arial.ttf");
         //Sort by higher score and first registered
         ranking.rankings = ranking.rankings.OrderByDescending(o => o.Time).ThenByDescending(o => o.Date).ToList();
         foreach (var rank in ranking.rankings)
         {
-            CreateText(rank.PlayerName, arialFont);
-            CreateText(rank.Time.ToString("0.00"), arialFont);
+            CreateText(rank.PlayerName);
+            CreateText(rank.Time.ToString("0.00"));
         }
     }
 
-    private void CreateText(string text, Font arialFont)
+    private void CreateText(string text)
     {
         GameObject newText = new GameObject();
         newText.transform.SetParent(RankingGrid.transform);
 
         Text myText = newText.AddComponent<Text>();
-        myText.font = arialFont;
+        myText.font = font;
         myText.fontSize = 18;
-        myText.material = arialFont.material;
+        myText.material = font.material;
         myText.text = text;
         myText.alignment = TextAnchor.MiddleCenter;
     }

@@ -62,7 +62,7 @@ public class RankingController : MonoBehaviour
             rankingList.rankings.Add(ranking);
             if (rankingList.rankings.Count > GameConfiguration.MAX_RANKING_RECORDS)
             {
-                rankingList.rankings = rankingList.rankings.OrderByDescending(o => o.Time).ThenBy(o => o.Date).ToList();
+                rankingList.rankings = rankingList.rankings.OrderBy(o => o.Time).ThenBy(o => o.Date).ToList();
                 //Remove the ranking with less time
                 rankingList.rankings.RemoveAt(0);
             }

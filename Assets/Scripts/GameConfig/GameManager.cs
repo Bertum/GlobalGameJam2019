@@ -5,6 +5,8 @@ public class GameManager : MonoBehaviour
 {
     public float TimeToAdd;
     public GameObject WolfPrefab;
+    public GameObject PlayerPrefab;
+    public Sprite[] PlayerSprites;
 
     private GameObject[] _walls;
 
@@ -19,7 +21,18 @@ public class GameManager : MonoBehaviour
         _walls = GameObject.FindGameObjectsWithTag(GameConfiguration.WALL);
         _freeWalls.AddRange(_walls);
 
-        var difficulty = (Difficulty)PlayerPrefs.GetInt("Difficulty");
+        // Player spawner
+        var nPlayers = PlayerPrefs.GetInt(GameConfiguration.PLAYERS);
+        if (nPlayers == 0) nPlayers = 1;
+        var floors = GameObject.FindGameObjectsWithTag(GameConfiguration.FLOOR);
+        for (int i = 0; i < nPlayers; i++)
+        {
+            var player = Instantiate(PlayerPrefab, floors[Random.Range(0, floors.Length)].transform.position, Quaternion.identity);
+            player.GetComponentInChildren<SpriteRenderer>().sprite = PlayerSprites[i];
+            player.GetComponentInChildren<JoystickController>().numberPlayer = i + 1;
+        }
+
+        var difficulty = (Difficulty)PlayerPrefs.GetInt(GameConfiguration.DIFFICULTY);
         Material wallMaterial;
         switch (difficulty)
         {

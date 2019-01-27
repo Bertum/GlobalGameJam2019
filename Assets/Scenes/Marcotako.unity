@@ -362,22 +362,22 @@ PrefabInstance:
     - target: {fileID: 3096681291154462659, guid: 5ef9a910962168d4b8e589d27e328de8,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3096681291154462659, guid: 5ef9a910962168d4b8e589d27e328de8,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3096681291154462659, guid: 5ef9a910962168d4b8e589d27e328de8,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.54544497
       objectReference: {fileID: 0}
     - target: {fileID: 3096681291154462659, guid: 5ef9a910962168d4b8e589d27e328de8,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.8381467
       objectReference: {fileID: 0}
     - target: {fileID: 3096681291154462659, guid: 5ef9a910962168d4b8e589d27e328de8,
         type: 3}
@@ -397,28 +397,8 @@ PrefabInstance:
     - target: {fileID: 3096681291154462659, guid: 5ef9a910962168d4b8e589d27e328de8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 66.11
       objectReference: {fileID: 0}
-    - target: {fileID: 1980002341, guid: 5ef9a910962168d4b8e589d27e328de8, type: 3}
-      propertyPath: noMaterialClips.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1980002341, guid: 5ef9a910962168d4b8e589d27e328de8, type: 3}
-      propertyPath: noMaterialClips.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: c29d7ae2777bd354f9488fefc112eeb3, type: 3}
-    - target: {fileID: 1980002341, guid: 5ef9a910962168d4b8e589d27e328de8, type: 3}
-      propertyPath: noMaterialClips.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: 8eb3b414ed46097409c6b70bfc6d14ec, type: 3}
-    - target: {fileID: 1980002341, guid: 5ef9a910962168d4b8e589d27e328de8, type: 3}
-      propertyPath: noMaterialClips.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: c29d7ae2777bd354f9488fefc112eeb3, type: 3}
-    - target: {fileID: 1980002341, guid: 5ef9a910962168d4b8e589d27e328de8, type: 3}
-      propertyPath: noMaterialClips.Array.data[3]
-      value: 
-      objectReference: {fileID: 8300000, guid: 8eb3b414ed46097409c6b70bfc6d14ec, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ef9a910962168d4b8e589d27e328de8, type: 3}
 --- !u!1001 &1137129664
@@ -436,12 +416,12 @@ PrefabInstance:
     - target: {fileID: 5142507883009341709, guid: 49ee1e345bdb2714b98e8db4f289537d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.58
+      value: -4.91
       objectReference: {fileID: 0}
     - target: {fileID: 5142507883009341709, guid: 49ee1e345bdb2714b98e8db4f289537d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.98
+      value: 2.78
       objectReference: {fileID: 0}
     - target: {fileID: 5142507883009341709, guid: 49ee1e345bdb2714b98e8db4f289537d,
         type: 3}
@@ -488,33 +468,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5142507883009341709, guid: 49ee1e345bdb2714b98e8db4f289537d,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.38155
-      objectReference: {fileID: 0}
-    - target: {fileID: 5142507883009341709, guid: 49ee1e345bdb2714b98e8db4f289537d,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.7631
-      objectReference: {fileID: 0}
-    - target: {fileID: 5142507883009341709, guid: 49ee1e345bdb2714b98e8db4f289537d,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.38155
-      objectReference: {fileID: 0}
-    - target: {fileID: 349376910, guid: 49ee1e345bdb2714b98e8db4f289537d, type: 3}
-      propertyPath: explodeWoodClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 6d953942beb4bfa4b8fe6ceb3078d433, type: 3}
-    - target: {fileID: 349376910, guid: 49ee1e345bdb2714b98e8db4f289537d, type: 3}
-      propertyPath: explodeWheatClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 894c7b777cd7a3e4594895545cc2b0bc, type: 3}
-    - target: {fileID: 349376910, guid: 49ee1e345bdb2714b98e8db4f289537d, type: 3}
-      propertyPath: explodeStoneClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 8bfba90d5e7544b4daff313baed16779, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49ee1e345bdb2714b98e8db4f289537d, type: 3}
 --- !u!1 &1495111794
@@ -669,7 +622,7 @@ PrefabInstance:
     - target: {fileID: 195144661587946413, guid: ca7d8d45254d89e489dde8a7d4e3b897,
         type: 3}
       propertyPath: resourceMaterial
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca7d8d45254d89e489dde8a7d4e3b897, type: 3}

@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -11,6 +12,10 @@ public class MainMenuController : MonoBehaviour
     public GameObject DifficultySelector;
     public GameObject RankingLoadSave;
     public GameObject RankingGrid;
+    public GameObject ButtonEasy;
+    public GameObject OnePlayerBtn;
+    public GameObject BackCreditBtn;
+    public GameObject BackRanking;
     public Font font;
     private RankingData ranking;
 
@@ -39,7 +44,7 @@ public class MainMenuController : MonoBehaviour
     public void ThreePlayer()
     {
         PlayerPrefs.SetInt(GameConfiguration.PLAYERS, 3);
-        ShowDifficultySelector();
+        LoadGame();
     }
 
     public void SetDifficulty(int difficulty)
@@ -56,6 +61,7 @@ public class MainMenuController : MonoBehaviour
     public void ShowCredits()
     {
         Buttons.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(BackCreditBtn, null);
         Credits.SetActive(true);
     }
 
@@ -64,18 +70,21 @@ public class MainMenuController : MonoBehaviour
         DifficultySelector.SetActive(false);
         RankingPanel.SetActive(false);
         Credits.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(OnePlayerBtn, null);
         Buttons.SetActive(true);
     }
 
     public void ShowRanking()
     {
         Buttons.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(BackRanking, null);
         RankingPanel.SetActive(true);
     }
 
     public void ShowDifficultySelector()
     {
         Buttons.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(ButtonEasy, null);
         DifficultySelector.SetActive(true);
     }
 

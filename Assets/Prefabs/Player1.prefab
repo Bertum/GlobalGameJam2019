@@ -50,8 +50,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18d403f718bc55549ade2f65842adacb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHorizontalSpeed: 10
-  maxVerticalSpeed: 10
+  maxHorizontalSpeed: 4
+  maxVerticalSpeed: 4
   numberPlayer: 1
 --- !u!50 &3096681291154462661
 Rigidbody2D:

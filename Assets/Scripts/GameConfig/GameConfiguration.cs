@@ -12,6 +12,7 @@
     public const string WALL = "Wall";
     public const string PLAYER_TAG = "Player";
     public const string ENEMY_TAG = "Enemy";
+    public const string FLOOR = "Floor";
 
     //Hits
     public const int WHEAT_HITS = 1;

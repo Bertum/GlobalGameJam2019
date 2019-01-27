@@ -5,6 +5,8 @@ public class GameManager : MonoBehaviour
 {
     public float TimeToAdd;
     public GameObject WolfPrefab;
+    public GameObject PlayerPrefab;
+    public Sprite[] PlayerSprites;
 
     private GameObject[] _walls;
 
@@ -19,26 +21,44 @@ public class GameManager : MonoBehaviour
         _walls = GameObject.FindGameObjectsWithTag(GameConfiguration.WALL);
         _freeWalls.AddRange(_walls);
 
-        var difficulty = (Difficulty)PlayerPrefs.GetInt("Difficulty");
-        Material wallMaterial;
-        switch (difficulty)
+        // Player spawner
+        var nPlayers = PlayerPrefs.GetInt(GameConfiguration.PLAYERS);
+        if (nPlayers == 0) nPlayers = 1;
+        var floors = GameObject.FindGameObjectsWithTag(GameConfiguration.FLOOR);
+        for (int i = 0; i < nPlayers; i++)
         {
-            case Difficulty.Easy:
-                wallMaterial = Material.Stone;
-                break;
-            case Difficulty.Hard:
-                wallMaterial = Material.Wheat;
-                break;
-            case Difficulty.Medium:
-            default:
-                wallMaterial = Material.Wood;
-                break;
+            var player = Instantiate(PlayerPrefab, floors[Random.Range(0, floors.Length)].transform.position, Quaternion.identity);
+            player.GetComponentInChildren<SpriteRenderer>().sprite = PlayerSprites[i];
+            player.GetComponentInChildren<JoystickController>().numberPlayer = i + 1;
+        }
+
+        System.Func<Material> wallMaterial;
+        if (nPlayers == 1)
+        {
+            var difficulty = (Difficulty)PlayerPrefs.GetInt(GameConfiguration.DIFFICULTY);
+            switch (difficulty)
+            {
+                case Difficulty.Easy:
+                    wallMaterial = () => Material.Stone;
+                    break;
+                case Difficulty.Hard:
+                    wallMaterial = () => Material.Wheat;
+                    break;
+                case Difficulty.Medium:
+                default:
+                    wallMaterial = () => Material.Wood;
+                    break;
+            }
+        }
+        else
+        {
+            wallMaterial = () => (Material)Random.Range(0, 2);
         }
 
         foreach (var wall in _walls)
         {
             var controller = wall.GetComponent<WallController>();
-            controller.wallMaterial = wallMaterial;
+            controller.wallMaterial = wallMaterial();
             controller.InitWall();
         }
     }

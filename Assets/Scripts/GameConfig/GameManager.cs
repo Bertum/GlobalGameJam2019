@@ -24,10 +24,10 @@ public class GameManager : MonoBehaviour
         switch (difficulty)
         {
             case Difficulty.Easy:
-                wallMaterial = Material.Wheat;
+                wallMaterial = Material.Stone;
                 break;
             case Difficulty.Hard:
-                wallMaterial = Material.Stone;
+                wallMaterial = Material.Wheat;
                 break;
             case Difficulty.Medium:
             default:

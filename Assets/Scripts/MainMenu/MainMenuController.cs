@@ -82,7 +82,7 @@ public class MainMenuController : MonoBehaviour
     {
         Font arialFont = (Font)Resources.GetBuiltinResource(typeof(Font), "Arial.ttf");
         //Sort by higher score and first registered
-        ranking.rankings.OrderBy(o => o.Time).ThenByDescending(o => o.Date);
+        ranking.rankings = ranking.rankings.OrderByDescending(o => o.Time).ThenByDescending(o => o.Date).ToList();
         foreach (var rank in ranking.rankings)
         {
             CreateText(rank.PlayerName, arialFont);

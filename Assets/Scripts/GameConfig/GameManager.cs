@@ -54,7 +54,19 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            wallMaterial = () => (Material)Random.Range(0, 3);
+            wallMaterial = () =>
+            {
+                switch (Random.Range(0, 10))
+                {
+                    case int n when (n >= 0 && n < 5):
+                        return Material.Wheat;
+                    case int n when (n >= 8):
+                        return Material.Stone;
+                    case int n when (n >= 5 && n < 8):
+                    default:
+                        return Material.Wood;
+                }
+            };
         }
 
         foreach (var wall in _walls)

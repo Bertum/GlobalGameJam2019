@@ -121,7 +121,7 @@ public class PigController : MonoBehaviour
     {
         if (useKeys)
         {
-            return this.inputKeyController.IsKeySpace() && TryUseMaterial();
+            return this.inputKeyController.IsKeySpaceDown() && TryUseMaterial();
         }
         else
         {
@@ -133,7 +133,7 @@ public class PigController : MonoBehaviour
     {
         if (useKeys)
         {
-            return this.inputKeyController.IsKeySpace();
+            return this.inputKeyController.IsKeySpaceDown();
         }
         else
         {

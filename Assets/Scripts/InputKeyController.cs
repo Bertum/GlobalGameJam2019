@@ -63,6 +63,11 @@ public class InputKeyController : MonoBehaviour
         return IsKey(KeyCode.Space);
     }
 
+    public bool IsKeySpaceDown()
+    {
+        return Input.GetKeyDown(KeyCode.Space);
+    }
+
     public float GetValueHorizontal()
     {
         return GetAxis(KEY_HORIZONTAL);

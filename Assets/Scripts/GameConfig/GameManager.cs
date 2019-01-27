@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            wallMaterial = () => (Material)Random.Range(0, 2);
+            wallMaterial = () => (Material)Random.Range(0, 3);
         }
 
         foreach (var wall in _walls)

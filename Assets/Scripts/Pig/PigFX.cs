@@ -15,7 +15,8 @@ public class PigFX : MonoBehaviour
     void Start()
     {
         _audioSource = GetComponent<AudioSource>();
-        _keepGrunting = false;    
+        _keepGrunting = false;
+        InitPlayGrunt();
     }
 
     public void InitPlayGrunt()
@@ -66,7 +67,7 @@ public class PigFX : MonoBehaviour
     {
         while (_keepGrunting)
         {
-            yield return new WaitForSeconds(Random.Range(1, GameConfiguration.GRUNT_LIMIT));
+            yield return new WaitForSeconds(Random.Range(GameConfiguration.GRUNT_LIMIT_INF, GameConfiguration.GRUNT_LIMIT_SUP));
             if(_keepGrunting)
                 PlayGrunt();
         }        

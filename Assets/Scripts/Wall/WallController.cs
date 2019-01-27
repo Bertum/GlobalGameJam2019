@@ -34,7 +34,10 @@ public class WallController : MonoBehaviour
         {
             if (_pigController.IsRepairingWall())
             {
-                RepairWall(_pigController.GetCurrentMaterial());
+                if (RepairWall(_pigController.GetCurrentMaterial()))
+                {
+                    _pigController.UseMaterial();
+                }                
             }
         }
 
@@ -72,10 +75,9 @@ public class WallController : MonoBehaviour
         }
     }
 
-
-
-    private void RepairWall(Material material)
+    private bool RepairWall(Material material)
     {
+        bool wallRepaired = false;
         if(IsNoWall)
         {
             wallMaterial = material;
@@ -87,7 +89,9 @@ public class WallController : MonoBehaviour
             _life++;
             SetupWall();
             _wallFX.PlayRepair(material);
-        }        
+            wallRepaired = true;
+        }
+        return wallRepaired;
     }
 
     public void DestroyWall()

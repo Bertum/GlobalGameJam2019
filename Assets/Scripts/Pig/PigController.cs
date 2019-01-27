@@ -15,18 +15,29 @@ public class PigController : MonoBehaviour
     private GameObject _materialGO;
     private SpriteRenderer _materialSpriteRenderer;
 
+    private InputKeyController inputKeyController;
+
     public void Start()
     {
         this.joystickController = GetComponent<JoystickController>();
         _materialGO = gameObject.transform.GetChild(1).gameObject;
         _materialSpriteRenderer = _materialGO.GetComponent<SpriteRenderer>();
         _materialSpriteRenderer.sprite = null;
+        this.inputKeyController = GetComponent<InputKeyController>();
+
+        this.inputKeyController.enabled = false;
+        this.joystickController.enabled = true;
+
+        if (this.useKeys)
+        {
+            this.inputKeyController.enabled = true;
+            this.joystickController.enabled = false;
+        }
     }
 
     private void Awake()
     {
         ResetMaterials();
-
     }
 
     public void UseMaterial()
@@ -98,7 +109,7 @@ public class PigController : MonoBehaviour
     {
         if (useKeys)
         {
-            return Input.GetKeyDown(KeyCode.R) && TryUseMaterial();
+            return this.inputKeyController.IsKeySpace() && TryUseMaterial();
         }
         else
         {
@@ -110,7 +121,7 @@ public class PigController : MonoBehaviour
     {
         if (useKeys)
         {
-            return Input.GetKeyDown(KeyCode.R);
+            return this.inputKeyController.IsKeySpace();
         }
         else
         {

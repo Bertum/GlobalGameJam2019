@@ -31,19 +31,19 @@ public class MainMenuController : MonoBehaviour
 
     public void OnePlayer()
     {
-        PlayerPrefs.SetInt("Players", 1);
+        PlayerPrefs.SetInt(GameConfiguration.PLAYERS, 1);
         ShowDifficultySelector();
     }
 
     public void ThreePlayer()
     {
-        PlayerPrefs.SetInt("Players", 3);
+        PlayerPrefs.SetInt(GameConfiguration.PLAYERS, 3);
         ShowDifficultySelector();
     }
 
     public void SetDifficulty(int difficulty)
     {
-        PlayerPrefs.SetInt("Difficulty", difficulty);
+        PlayerPrefs.SetInt(GameConfiguration.DIFFICULTY, difficulty);
         LoadGame();
     }
 
@@ -97,6 +97,7 @@ public class MainMenuController : MonoBehaviour
 
         Text myText = newText.AddComponent<Text>();
         myText.font = arialFont;
+        myText.fontSize = 18;
         myText.material = arialFont.material;
         myText.text = text;
         myText.alignment = TextAnchor.MiddleCenter;

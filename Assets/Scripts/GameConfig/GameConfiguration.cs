@@ -23,4 +23,8 @@
 
     //Grunt sound limit (seconds)
     public const int GRUNT_LIMIT = 5;
+
+    //Players prefs
+    public const string PLAYERS = "Players";
+    public const string DIFFICULTY = "Difficulty";
 }

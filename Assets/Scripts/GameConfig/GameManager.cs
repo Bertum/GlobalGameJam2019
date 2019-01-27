@@ -32,26 +32,33 @@ public class GameManager : MonoBehaviour
             player.GetComponentInChildren<JoystickController>().numberPlayer = i + 1;
         }
 
-        var difficulty = (Difficulty)PlayerPrefs.GetInt(GameConfiguration.DIFFICULTY);
-        Material wallMaterial;
-        switch (difficulty)
+        System.Func<Material> wallMaterial;
+        if (nPlayers == 1)
         {
-            case Difficulty.Easy:
-                wallMaterial = Material.Stone;
-                break;
-            case Difficulty.Hard:
-                wallMaterial = Material.Wheat;
-                break;
-            case Difficulty.Medium:
-            default:
-                wallMaterial = Material.Wood;
-                break;
+            var difficulty = (Difficulty)PlayerPrefs.GetInt(GameConfiguration.DIFFICULTY);
+            switch (difficulty)
+            {
+                case Difficulty.Easy:
+                    wallMaterial = () => Material.Stone;
+                    break;
+                case Difficulty.Hard:
+                    wallMaterial = () => Material.Wheat;
+                    break;
+                case Difficulty.Medium:
+                default:
+                    wallMaterial = () => Material.Wood;
+                    break;
+            }
+        }
+        else
+        {
+            wallMaterial = () => (Material)Random.Range(0, 2);
         }
 
         foreach (var wall in _walls)
         {
             var controller = wall.GetComponent<WallController>();
-            controller.wallMaterial = wallMaterial;
+            controller.wallMaterial = wallMaterial();
             controller.InitWall();
         }
     }

@@ -37,6 +37,11 @@ public class RankingController : MonoBehaviour
     {
         if (!gameFinished)
         {
+            var pigFX = FindObjectOfType<PigFX>();
+            if(pigFX != null)
+            {
+                pigFX.PlayDeath();
+            }
             Time.timeScale = 0;
             gameFinished = true;
             Score.text = "Your score: " + ranking.Time.ToString("0.00");

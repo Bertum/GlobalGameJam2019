@@ -389,4 +389,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7bb0502809ea36f4d94580310f7373f0, type: 3}
   - {fileID: 8300000, guid: b861b964f3291a44f8407fd99bd32435, type: 3}
   - {fileID: 8300000, guid: b861b964f3291a44f8407fd99bd32435, type: 3}
+  explodeWheatClip: {fileID: 8300000, guid: 894c7b777cd7a3e4594895545cc2b0bc, type: 3}
+  explodeWoodClip: {fileID: 8300000, guid: 6d953942beb4bfa4b8fe6ceb3078d433, type: 3}
+  explodeStoneClip: {fileID: 8300000, guid: 8bfba90d5e7544b4daff313baed16779, type: 3}
   clipsCount: 4

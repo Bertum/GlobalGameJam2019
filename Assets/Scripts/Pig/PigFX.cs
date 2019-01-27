@@ -6,6 +6,7 @@ public class PigFX : MonoBehaviour
 {
     public AudioClip[] gruntClips;
     public AudioClip[] deathClips;
+    public AudioClip[] noMaterialClips;
     public int clipsCount;
 
     private AudioSource _audioSource;
@@ -57,6 +58,12 @@ public class PigFX : MonoBehaviour
         _audioSource.Play();        
     }
 
+    public void PlayNoMaterial()
+    {
+        _audioSource.clip = GetRandomClip(noMaterialClips);
+        _audioSource.Play();
+    }
+
     private void PlayGrunt()
     {
         _audioSource.clip = GetRandomClip(gruntClips);
@@ -68,7 +75,7 @@ public class PigFX : MonoBehaviour
         while (_keepGrunting)
         {
             yield return new WaitForSeconds(Random.Range(GameConfiguration.GRUNT_LIMIT_INF, GameConfiguration.GRUNT_LIMIT_SUP));
-            if(_keepGrunting)
+            if(_keepGrunting && !_audioSource.isPlaying)
                 PlayGrunt();
         }        
     }

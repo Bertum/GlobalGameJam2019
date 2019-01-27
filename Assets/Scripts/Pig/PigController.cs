@@ -14,6 +14,7 @@ public class PigController : MonoBehaviour
 
     private GameObject _materialGO;
     private SpriteRenderer _materialSpriteRenderer;
+    private PigFX _pigFX;
 
     private InputKeyController inputKeyController;
 
@@ -23,16 +24,17 @@ public class PigController : MonoBehaviour
         _materialGO = gameObject.transform.GetChild(1).gameObject;
         _materialSpriteRenderer = _materialGO.GetComponent<SpriteRenderer>();
         _materialSpriteRenderer.sprite = null;
+        _pigFX = GetComponent<PigFX>();
         this.inputKeyController = GetComponent<InputKeyController>();
 
-        this.inputKeyController.enabled = false;
-        this.joystickController.enabled = true;
+                this.inputKeyController.enabled = false;
+                this.joystickController.enabled = true;
 
-        if (this.useKeys)
-        {
-            this.inputKeyController.enabled = true;
-            this.joystickController.enabled = false;
-        }
+                if (this.useKeys)
+                {
+                    this.inputKeyController.enabled = true;
+                    this.joystickController.enabled = false;
+                }
     }
 
     private void Awake()
@@ -79,7 +81,7 @@ public class PigController : MonoBehaviour
         }
         else
         {
-            // TODO sound pig without materials?
+            _pigFX.PlayNoMaterial();
             return false;
         }
     }

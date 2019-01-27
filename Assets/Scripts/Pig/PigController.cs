@@ -26,20 +26,25 @@ public class PigController : MonoBehaviour
         _materialSpriteRenderer.sprite = null;
         _pigFX = GetComponent<PigFX>();
         this.inputKeyController = GetComponent<InputKeyController>();
-
-                this.inputKeyController.enabled = false;
-                this.joystickController.enabled = true;
-
-                if (this.useKeys)
-                {
-                    this.inputKeyController.enabled = true;
-                    this.joystickController.enabled = false;
-                }
     }
 
     private void Awake()
     {
         ResetMaterials();
+    }
+
+    private void Update()
+    {
+        if (this.useKeys && !this.inputKeyController.enabled)
+        {
+            this.inputKeyController.enabled = true;
+            this.joystickController.enabled = false;
+        }
+        else if (!this.useKeys && !this.joystickController.enabled)
+        {
+            this.inputKeyController.enabled = false;
+            this.joystickController.enabled = true;
+        }
     }
 
     public void UseMaterial()

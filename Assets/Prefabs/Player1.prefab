@@ -218,6 +218,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8a5d0e0a3cb86cb46af7c0593e44b066, type: 3}
   - {fileID: 8300000, guid: c7cab11559d83924e90b32816f84e8fd, type: 3}
   - {fileID: 8300000, guid: 8a5d0e0a3cb86cb46af7c0593e44b066, type: 3}
+  noMaterialClips:
+  - {fileID: 8300000, guid: c29d7ae2777bd354f9488fefc112eeb3, type: 3}
+  - {fileID: 8300000, guid: 8eb3b414ed46097409c6b70bfc6d14ec, type: 3}
+  - {fileID: 8300000, guid: c29d7ae2777bd354f9488fefc112eeb3, type: 3}
+  - {fileID: 8300000, guid: 8eb3b414ed46097409c6b70bfc6d14ec, type: 3}
   clipsCount: 4
 --- !u!114 &1980002343
 MonoBehaviour:

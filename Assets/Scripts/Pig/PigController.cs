@@ -19,6 +19,7 @@ public class PigController : MonoBehaviour
     private GameObject _hammerGO;
 
     private InputKeyController inputKeyController;
+    private Rigidbody2D rigidbodyComponent;
 
     public void Start()
     {
@@ -35,19 +36,22 @@ public class PigController : MonoBehaviour
     private void Awake()
     {
         ResetMaterials();
+        this.rigidbodyComponent = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if (this.useKeys && !this.inputKeyController.enabled)
+        if (this.inputKeyController.IsPressMovement())
         {
-            this.inputKeyController.enabled = true;
-            this.joystickController.enabled = false;
+            this.inputKeyController.MoveUpdate();
         }
-        else if (!this.useKeys && !this.joystickController.enabled)
+        else if (this.joystickController.IsPressJoystick())
         {
-            this.inputKeyController.enabled = false;
-            this.joystickController.enabled = true;
+            this.joystickController.MoveUpdate();
+        }
+        else
+        {
+            this.rigidbodyComponent.velocity = Vector2.zero;
         }
     }
 
@@ -119,26 +123,12 @@ public class PigController : MonoBehaviour
 
     public bool IsRepairingWall()
     {
-        if (useKeys)
-        {
-            return this.inputKeyController.IsKeySpaceDown() && TryUseMaterial();
-        }
-        else
-        {
-            return joystickController.IsPressAnyButton() && TryUseMaterial();
-        }
+        return (joystickController.IsPressAnyButton() || this.inputKeyController.IsKeySpaceDown()) && TryUseMaterial();
     }
 
     public bool IsGettingResource()
     {
-        if (useKeys)
-        {
-            return this.inputKeyController.IsKeySpaceDown();
-        }
-        else
-        {
-            return joystickController.IsPressAnyButton();
-        }
+        return joystickController.IsPressAnyButton() || this.inputKeyController.IsKeySpaceDown();
     }
 
     public Material GetCurrentMaterial()

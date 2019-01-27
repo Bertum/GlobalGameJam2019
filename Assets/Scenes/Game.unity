@@ -1387,7 +1387,7 @@ PrefabInstance:
     - target: {fileID: 8726855915543002185, guid: f66e644bec68f4f4a9aa91db65b8a227,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 9176180822431215798, guid: f66e644bec68f4f4a9aa91db65b8a227,
         type: 3}
@@ -1397,7 +1397,7 @@ PrefabInstance:
     - target: {fileID: 8726855915849402049, guid: f66e644bec68f4f4a9aa91db65b8a227,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 9176180822738143806, guid: f66e644bec68f4f4a9aa91db65b8a227,
         type: 3}
@@ -1442,7 +1442,7 @@ PrefabInstance:
     - target: {fileID: 8726855915683170959, guid: f66e644bec68f4f4a9aa91db65b8a227,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 9176180822308849264, guid: f66e644bec68f4f4a9aa91db65b8a227,
         type: 3}
@@ -1452,7 +1452,7 @@ PrefabInstance:
     - target: {fileID: 8726855915798605432, guid: f66e644bec68f4f4a9aa91db65b8a227,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 9176180822687244935, guid: f66e644bec68f4f4a9aa91db65b8a227,
         type: 3}
@@ -2304,6 +2304,61 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Floor
       objectReference: {fileID: 0}
+    - target: {fileID: 6842833834498111544, guid: f66e644bec68f4f4a9aa91db65b8a227,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.9668
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842833835194670263, guid: f66e644bec68f4f4a9aa91db65b8a227,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.9668
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849706978111281645, guid: f66e644bec68f4f4a9aa91db65b8a227,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849706978111281645, guid: f66e644bec68f4f4a9aa91db65b8a227,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.85001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849706978111281645, guid: f66e644bec68f4f4a9aa91db65b8a227,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 119710627721935308, guid: f66e644bec68f4f4a9aa91db65b8a227,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.75792
+      objectReference: {fileID: 0}
+    - target: {fileID: 119710627721935308, guid: f66e644bec68f4f4a9aa91db65b8a227,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.69678
+      objectReference: {fileID: 0}
+    - target: {fileID: 119710627721935308, guid: f66e644bec68f4f4a9aa91db65b8a227,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 119710628053566276, guid: f66e644bec68f4f4a9aa91db65b8a227,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.7579202
+      objectReference: {fileID: 0}
+    - target: {fileID: 119710628053566276, guid: f66e644bec68f4f4a9aa91db65b8a227,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.069865964
+      objectReference: {fileID: 0}
+    - target: {fileID: 119710628053566276, guid: f66e644bec68f4f4a9aa91db65b8a227,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f66e644bec68f4f4a9aa91db65b8a227, type: 3}
 --- !u!1001 &1947968234
@@ -2499,4 +2554,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b7bf2fe0091ccb845a96a5039bcaacf2, type: 3}
   - {fileID: 21300000, guid: c73b4f38d0debf44d8c87d63754e2935, type: 3}
   - {fileID: 21300000, guid: ede840ba20e79fe4f84a042ec5a8d7fb, type: 3}
-  MusicManagerScript: {fileID: 0}
+  MusicManagerScript: {fileID: 713122954}

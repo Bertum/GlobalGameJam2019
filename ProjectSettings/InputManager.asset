@@ -334,7 +334,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: 0
+    dead: 0.1
     sensitivity: 1
     snap: 1
     invert: 1
@@ -455,7 +455,7 @@ InputManager:
     joyNum: 0
   - serializedVersion: 3
     m_Name: JLVPlayer2
-    descriptiveName: Joystick left vertical Player 1
+    descriptiveName: Joystick left vertical Player 2
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: 
@@ -465,7 +465,7 @@ InputManager:
     dead: 0.1
     sensitivity: 1
     snap: 1
-    invert: 0
+    invert: 1
     type: 2
     axis: 1
     joyNum: 2
@@ -481,7 +481,23 @@ InputManager:
     dead: 0.1
     sensitivity: 1
     snap: 1
-    invert: 0
+    invert: 1
     type: 2
     axis: 1
     joyNum: 3
+  - serializedVersion: 3
+    m_Name: JLVPlayer4
+    descriptiveName: Joystick left vertical Player 4
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: 0.1
+    sensitivity: 1
+    snap: 1
+    invert: 1
+    type: 2
+    axis: 1
+    joyNum: 4
